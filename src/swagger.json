@@ -1,0 +1,113 @@
+{
+    "openapi": "3.0.0",
+
+    "info": {
+        "title": "VUTTR (Very Useful Tools to Remember)",
+        "description": "A aplicação é um simples repositório para gerenciar ferramentas com seus respectivos nomes, links, descrições e tags.",
+        "version": "1.0.0",
+        "contact": {
+            "email": "heriksantos04@gmail.com"
+        }
+    },
+    "paths" : {
+        "/tools": {
+            "get": {
+                "tags": ["Tools"],
+                "summary": "Return a list of tools",
+                "responses": {
+                    "200": {
+                        "description": "Return um array that contain all tools registed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "link": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "tags": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Tools"],
+                "summary": "Create a new tool",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "link": {
+                                        "type": "string"
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "title": "Example title of a tool",
+                                    "description": "Example description of a tool",
+                                    "link": "Example link of a tool",
+                                    "tags": ["1 tag", "2 tag"]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+
+                    },
+                    "500": {
+                        "description": "Fatal error"
+                    }
+                }
+            }
+
+        },
+        "/tools/:id": {
+            "delete": {
+                "tags": ["Tools"],
+                "summary": "Delete a tool",
+                "description": "Delete a tool that passed with params",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "500": {
+                        "description": "Fatal error"
+                    }
+                }
+            }
+        }
+    }
+}

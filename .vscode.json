@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug ts-node-dev",
+            "type": "pwa-node",
+            "request": "launch",
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register",
+                "-r",
+                "tsconfig-paths/register"
+            ],
+            "args": [
+                "./src/index.ts"
+            ],
+            "protocol": "inspector",
+            "console": "integratedTerminal"
+        }
+    ]
+}
