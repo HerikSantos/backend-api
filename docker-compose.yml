@@ -12,7 +12,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - volume-mysql-rent:/var/lib/mysql
+      - volume-mysql-projetos:/var/lib/mysql
     network_mode: host
 
   app:
@@ -24,3 +24,6 @@ services:
     volumes:
         - ".:/usr/app"
     network_mode: host
+
+volumes:
+  volume-mysql-projetos:
