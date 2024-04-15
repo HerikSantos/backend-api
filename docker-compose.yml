@@ -1,0 +1,26 @@
+version: '4.28'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: herik-mysql
+    restart: always
+    environment:
+      MYSQL_USER: abc
+      MYSQL_PASSWORD: 123
+      MYSQL_DATABASE: rentCar
+    ports:
+      - "3306:3306"
+    volumes:
+      - volume-mysql-rent:/var/lib/mysql
+    network_mode: host
+
+  app:
+    build: .
+    container_name: VUTTR
+    restart: always
+    ports:
+        - "3000:3000"
+    volumes:
+        - ".:/usr/app"
+    network_mode: host
