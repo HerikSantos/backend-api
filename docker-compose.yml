@@ -6,9 +6,10 @@ services:
     container_name: herik-mysql
     restart: always
     environment:
-      MYSQL_USER: abc
+      MYSQL_USER: herik
       MYSQL_PASSWORD: 123
-      MYSQL_DATABASE: rentCar
+      MYSQL_DATABASE: tools
+      MYSQL_ROOT_PASSWORD: 123456
     ports:
       - "3306:3306"
     volumes:
